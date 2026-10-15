@@ -1,6 +1,6 @@
 import MainLayout from "./layouts/MainLayout";
 import Profile from "./pages/Profile";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import AuthLayout from "./layouts/AuthLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import SignUp from "./pages/SignUp";
@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import Bookmarks from "./pages/Bookmarks";
 import UserProfile from "./pages/UserProfile";
 import PostPage from "./pages/PostPage";
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     element: <AuthLayout />,
     children: [
