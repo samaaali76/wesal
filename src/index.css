@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --c-accent-300: #ecd0b0;
+  --c-accent-400: #d9ae82;
+  --c-gold: #c58a4a;
+  --c-n-950: #06121f;
+  --c-n-900: #0d1e30;
+  --c-n-800: #16293d;
+  --c-n-700: #243b52;
+  --c-n-600: #4a6178;
+  --c-n-500: #7c8fa1;
+  --c-n-400: #a3b2c0;
+  --c-n-300: #c9d3dc;
+  --c-white: #f7f2e8;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --c-accent-300: #a56d2c;
+  --c-accent-400: #8f5a22;
+  --c-gold: #a8732f;
+  --c-n-950: #f7f2e8;
+  --c-n-900: #fffcf6;
+  --c-n-800: #ece4d2;
+  --c-n-700: #d9cfb9;
+  --c-n-600: #a89f8a;
+  --c-n-500: #6a7a85;
+  --c-n-400: #4b5f6d;
+  --c-n-300: #2f4555;
+  --c-white: #142b3b;
+}
+
+@theme inline {
+  --color-lime-300: var(--c-accent-300);
+  --color-lime-400: var(--c-accent-400);
+  --color-gold: var(--c-gold);
+  --color-neutral-950: var(--c-n-950);
+  --color-neutral-900: var(--c-n-900);
+  --color-neutral-800: var(--c-n-800);
+  --color-neutral-700: var(--c-n-700);
+  --color-neutral-600: var(--c-n-600);
+  --color-neutral-500: var(--c-n-500);
+  --color-neutral-400: var(--c-n-400);
+  --color-neutral-300: var(--c-n-300);
+  --color-white: var(--c-white);
+}
+
+@theme {
+  --color-terracotta: #d58b72;
+  --color-nile: #142b3b;
+
+  --animate-fade-up: fade-up 0.4s ease-out backwards;
+  --animate-fade-in: fade-in 0.3s ease-out backwards;
+  --animate-pop: pop 0.4s ease-out;
+  --animate-modal-in: modal-in 0.2s ease-out backwards;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes pop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.5); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+  @keyframes modal-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+}
+
+body {
+  background: var(--c-n-950);
+  transition: background-color 0.3s;
+}
+
+button,
+a {
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s, opacity 0.2s, transform 0.15s;
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
